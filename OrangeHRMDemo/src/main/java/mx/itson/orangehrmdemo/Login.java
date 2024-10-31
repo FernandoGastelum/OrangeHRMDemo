@@ -23,7 +23,7 @@ public class Login {
     private By usernameField = By.name("username");
     private By passwordField = By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input");
     private By loginButton = By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button");
-    private By errorMessage = By.id("spanMessage");
+    private By errorMessage = By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p");
 
     // Constructor
     public Login(WebDriver driver) {

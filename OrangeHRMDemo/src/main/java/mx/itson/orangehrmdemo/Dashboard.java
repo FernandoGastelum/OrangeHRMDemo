@@ -21,6 +21,7 @@ public class Dashboard {
 
     // Localizador para el título de Dashboard
     private By dashboardTitle = By.xpath("//h6[text()='Dashboard']");
+    
 
     // Constructor
     public Dashboard(WebDriver driver) {
@@ -36,7 +37,7 @@ public class Dashboard {
 
     // Método para navegar a la sección de "My Info"
     public void goToMyInfo() {
-        WebElement myInfoTab = wait.until(ExpectedConditions.elementToBeClickable(By.id("menu_pim_viewMyDetails")));
+        WebElement myInfoTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[6]/a")));
         myInfoTab.click();
     }
 
@@ -48,7 +49,7 @@ public class Dashboard {
 
     // Método para navegar a la sección de "Admin"
     public void goToAdmin() {
-        WebElement adminTab = wait.until(ExpectedConditions.elementToBeClickable(By.id("menu_admin_viewAdminModule")));
+        WebElement adminTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")));
         adminTab.click();
     }
 }

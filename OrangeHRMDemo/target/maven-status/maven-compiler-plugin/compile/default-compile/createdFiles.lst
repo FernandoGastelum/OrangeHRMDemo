@@ -1,4 +1,6 @@
 mx\itson\orangehrmdemo\Dashboard.class
 mx\itson\orangehrmdemo\Login.class
+mx\itson\orangehrmdemo\MyInfo.class
 mx\itson\orangehrmdemo\OrangeHRMDemo.class
 mx\itson\orangehrmdemo\Employee.class
+mx\itson\orangehrmdemo\Admin.class
