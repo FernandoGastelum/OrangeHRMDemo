@@ -174,6 +174,104 @@ public void editSkill() throws InterruptedException {
     Thread.sleep(1000); // Pausa final para observar el guardado
 }
 
+public void editWorkShift() throws InterruptedException {
+        // Localizador para el menú "Work Shifts"
+        By workShiftsMenu = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]");
+        By workShiftsOption = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]/ul/li[5]/a");
+        By editButton = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[6]/div/button[2]/i");
+        By workShiftField = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/input");
+        By saveButton = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]");
+
+        // Hacer clic en el menú "Work Shifts" para acceder a la sección
+        wait.until(ExpectedConditions.elementToBeClickable(workShiftsMenu)).click();
+        Thread.sleep(1000); // Pausa de 1 segundo
+
+        // Seleccionar la opción "Work Shifts"
+        wait.until(ExpectedConditions.elementToBeClickable(workShiftsOption)).click();
+        Thread.sleep(1000);
+
+        // Hacer clic en el botón de editar el horario laboral
+        wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+        Thread.sleep(1000);
+
+        // Borrar el contenido del campo de horario laboral y escribir "10:00 AM"
+        WebElement workShiftElement = wait.until(ExpectedConditions.visibilityOfElementLocated(workShiftField));
+        workShiftElement.clear();
+        Thread.sleep(500); // Pausa de medio segundo para ver el campo vacío
+        workShiftElement.sendKeys("10:00 AM");
+        Thread.sleep(1000);
+
+        // Hacer clic en el botón de guardar cambios
+        driver.findElement(saveButton).click();
+        Thread.sleep(1000); // Pausa final para observar el guardado
+    }
+
+public void assignEmployee() throws InterruptedException {
+    By editWButton = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[6]/div/button[2]/i");
+    By workShiftsMenu = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]");
+    By workShiftsOption = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]/ul/li[5]/a");
+
+    // Hacer clic en el menú "Work Shifts" para acceder a la sección
+    wait.until(ExpectedConditions.elementToBeClickable(workShiftsMenu)).click();
+    Thread.sleep(1000); // Pausa de 1 segundo
+
+    // Seleccionar la opción "Work Shifts"
+    wait.until(ExpectedConditions.elementToBeClickable(workShiftsOption)).click();
+    Thread.sleep(1000);
+
+    // Hacer clic en el botón de editar el horario laboral
+    wait.until(ExpectedConditions.elementToBeClickable(editWButton)).click();
+    Thread.sleep(1000);
+
+    // Localizador para el campo de asignación de empleado
+    By employeeFieldInput = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div/div/div[2]/div/div[1]/input");
+    
+    // Localizador para el botón de guardar cambios
+    By saveButton = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]");
+
+    // Hacer clic en el campo de asignación de empleado
+    WebElement employeeElement = wait.until(ExpectedConditions.elementToBeClickable(employeeFieldInput));
+    employeeElement.click();
+    Thread.sleep(1000); // Pausa de 1 segundo para asegurarse que el campo esté activo
+
+    // Ingresar el nombre completo del empleado
+    employeeElement.clear(); // Limpiar cualquier texto existente
+    Thread.sleep(500); // Pausa para asegurarse que el campo esté vacío
+    employeeElement.sendKeys("Qwerty Qwerty LName");
+    Thread.sleep(1000); // Pausa para observar el texto ingresado
+
+    // Hacer clic en el botón de guardar cambios
+    wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
+    Thread.sleep(1000); // Pausa final para observar el guardado
+}
+
+
+public void deleteWorkShift() throws InterruptedException {
+    By workShiftsMenu = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]");
+    By workShiftsOption = By.xpath("//*[@id='app']/div[1]/div[1]/header/div[2]/nav/ul/li[2]/ul/li[5]/a");
+    
+    // Localizador para el botón de eliminar horario laboral
+    By deleteButton = By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[6]/div/button[1]/i");
+    
+    // Localizador para el botón de confirmar la eliminación
+    By confirmButton = By.xpath("//*[@id='app']/div[3]/div/div/div/div[3]/button[2]");
+
+    // Hacer clic en el menú "Work Shifts" para acceder a la sección
+    wait.until(ExpectedConditions.elementToBeClickable(workShiftsMenu)).click();
+    Thread.sleep(1000); // Pausa de 1 segundo
+
+    // Seleccionar la opción "Work Shifts"
+    wait.until(ExpectedConditions.elementToBeClickable(workShiftsOption)).click();
+    Thread.sleep(1000);
+
+    // Hacer clic en el botón de eliminar horario laboral
+    wait.until(ExpectedConditions.elementToBeClickable(deleteButton)).click();
+    Thread.sleep(1000); // Pausa para observar la acción de eliminación
+
+    // Hacer clic en el botón de confirmar la eliminación
+    wait.until(ExpectedConditions.elementToBeClickable(confirmButton)).click();
+    Thread.sleep(1000); // Pausa final para observar la confirmación
+}
 
 
 

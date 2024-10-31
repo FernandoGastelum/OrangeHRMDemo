@@ -72,5 +72,12 @@ public void goToSupport() {
     WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(supportButton));
     changePasswordElement.click();
 }
+
+public void goToWorkShifts() {
+    
+    
+}
+
+
 }
 

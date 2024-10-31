@@ -116,23 +116,66 @@ public class CarlosTest {
 //
 //    // Opcional: Verificar que el idioma fue eliminado con éxito, si existe un indicador de éxito
 //}
-    
-    @Test
-public void editSkillTest() throws InterruptedException {
-    // Iniciar sesión en la aplicación
-    loginPage.startLogin("admin", "admin123");
+    //7.- ya funciona
+//    @Test
+//public void editSkillTest() throws InterruptedException {
+//    // Iniciar sesión en la aplicación
+//    loginPage.startLogin("admin", "admin123");
+//
+//    // Navegar a la sección de Administración
+//    dashboard.goToAdmin();
+//
+//    // Ejecutar el método para editar una habilidad
+//    admin.editSkill();
+//
+//    // Opcional: Verificar que los cambios en la habilidad se han guardado con éxito
+//}
+/**
+ * 8.- ya funciona
+ */
+//@Test
+//public void testEditWorkShift() throws InterruptedException {
+//    // Iniciar sesión y realizar otras configuraciones necesarias
+//    loginPage.startLogin("admin", "admin123");
+//
+//    
+//    // Navegar a la sección de Administración
+//    dashboard.goToAdmin();
+//
+//    // Ir al dashboard y editar el horario laboral
+//    admin.editWorkShift();
+//}
 
+/**
+ * 9.- ya funciona 
+ */
+    
+//    @Test
+//public void testAssignEmployee() throws InterruptedException {
+//    // Iniciar sesión y realizar otras configuraciones necesarias
+//    loginPage.startLogin("admin", "admin123");
+//    
+//     // Navegar a la sección de Administración
+//    dashboard.goToAdmin();
+//
+//    // Ir al dashboard y asignar el empleado
+//    admin.assignEmployee();
+//}
+
+    /**
+     * 10.- 
+     */
+@Test
+public void testDeleteWorkShift() throws InterruptedException {
+    // Iniciar sesión y realizar otras configuraciones necesarias
+    loginPage.startLogin("admin", "admin123");
+    
     // Navegar a la sección de Administración
     dashboard.goToAdmin();
 
-    // Ejecutar el método para editar una habilidad
-    admin.editSkill();
-
-    // Opcional: Verificar que los cambios en la habilidad se han guardado con éxito
+    // Ir al dashboard y eliminar el horario laboral
+    admin.deleteWorkShift();
 }
-
-
-    
 
 
     @After
