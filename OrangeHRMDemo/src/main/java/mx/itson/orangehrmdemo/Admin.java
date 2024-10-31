@@ -124,6 +124,56 @@ private By searchUsernameField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]
     wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteButton)).click();
 }
 
+public void editSkill() throws InterruptedException {
+    // Localizador para el menú desplegable "Qualifications"
+    By qualificationsMenu = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[4]/span/i");
+
+    // Localizador para la opción "Skills" dentro de Qualifications
+    By skillsOption = By.xpath("//*[text()='Skills']");
+
+    // Localizador para el botón de editar la habilidad
+    By editButton = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/div[4]/div/button[2]/i");
+
+    // Localizador para el campo de nombre de habilidad
+    By skillNameField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/input");
+
+    // Localizador para el campo de descripción de habilidad
+    By skillDescriptionField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/textarea");
+
+    // Localizador para el botón de guardar cambios
+    By saveButton = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]");
+
+    // Hacer clic en el menú "Qualifications" para desplegar las opciones
+    wait.until(ExpectedConditions.elementToBeClickable(qualificationsMenu)).click();
+    Thread.sleep(1000); // Pausa de 1 segundo
+
+    // Seleccionar la opción "Skills"
+    wait.until(ExpectedConditions.elementToBeClickable(skillsOption)).click();
+    Thread.sleep(1000);
+
+    // Hacer clic en el botón de editar la habilidad
+    wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
+    Thread.sleep(1000);
+
+    // Borrar el contenido del campo de nombre de habilidad y escribir "Content Management"
+    WebElement skillNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(skillNameField));
+    skillNameElement.clear();
+    Thread.sleep(500); // Pausa de medio segundo para ver el campo vacío
+    skillNameElement.sendKeys("Content Management");
+    Thread.sleep(1000);
+
+    // Borrar el contenido del campo de descripción de habilidad y escribir "Digital skills"
+    WebElement skillDescriptionElement = driver.findElement(skillDescriptionField);
+    skillDescriptionElement.clear();
+    Thread.sleep(500);
+    skillDescriptionElement.sendKeys("Digital skills");
+    Thread.sleep(1000);
+
+    // Hacer clic en el botón de guardar cambios
+    driver.findElement(saveButton).click();
+    Thread.sleep(1000); // Pausa final para observar el guardado
+}
+
 
 
 

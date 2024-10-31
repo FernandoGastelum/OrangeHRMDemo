@@ -102,20 +102,35 @@ public class CarlosTest {
 //    dashboard.goToSupport();
 //
 //}
-
+// 6.- ya funciona
+//    @Test
+//public void deleteLanguageTest() {
+//    // Iniciar sesión en la aplicación
+//    loginPage.startLogin("admin", "admin123");
+//
+//    // Navegar a la sección de Administración
+//    dashboard.goToAdmin();
+//
+//    // Ejecutar el método para eliminar un idioma
+//    admin.deleteLanguage();
+//
+//    // Opcional: Verificar que el idioma fue eliminado con éxito, si existe un indicador de éxito
+//}
+    
     @Test
-public void deleteLanguageTest() {
+public void editSkillTest() throws InterruptedException {
     // Iniciar sesión en la aplicación
     loginPage.startLogin("admin", "admin123");
 
     // Navegar a la sección de Administración
     dashboard.goToAdmin();
 
-    // Ejecutar el método para eliminar un idioma
-    admin.deleteLanguage();
+    // Ejecutar el método para editar una habilidad
+    admin.editSkill();
 
-    // Opcional: Verificar que el idioma fue eliminado con éxito, si existe un indicador de éxito
+    // Opcional: Verificar que los cambios en la habilidad se han guardado con éxito
 }
+
 
     
 
