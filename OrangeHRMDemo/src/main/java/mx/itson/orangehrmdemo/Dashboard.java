@@ -19,27 +19,33 @@ public class Dashboard {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Localizador para el título de Dashboard
     private By dashboardTitle = By.xpath("//h6[text()='Dashboard']");
-    
+    private By profileDropdown = By.xpath("//p[@class='oxd-userdropdown-name']");
+    private By logoutButton = By.xpath("//a[text()='Logout']");
+    private By changePasswordButton = By.xpath("//a[text()='Change Password']");
+    private By supportButton = By.xpath("//a[text()='Support']");
 
-    // Constructor
     public Dashboard(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    // Método para verificar que el Dashboard esté visible
     public boolean isDashboardDisplayed() {
         WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardTitle));
         return titleElement.isDisplayed();
     }
 
-    // Método para navegar a la sección de "My Info"
     public void goToMyInfo() {
         WebElement myInfoTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[6]/a")));
         myInfoTab.click();
     }
+
+    public void logout() {
+        wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
+    }
+
+
 
     // Método para navegar a la sección de "Leave"
     public void goToLeave() {
@@ -52,4 +58,19 @@ public class Dashboard {
         WebElement adminTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a")));
         adminTab.click();
     }
+    
+    // Método para abrir el apartado de "Change My Password"
+public void goToChangePassword() {
+    wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
+    WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
+    changePasswordElement.click();
 }
+
+public void goToSupport() {
+    
+    wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
+    WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(supportButton));
+    changePasswordElement.click();
+}
+}
+
