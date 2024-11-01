@@ -60,23 +60,27 @@ public class Dashboard {
     }
     
     // Método para abrir el apartado de "Change My Password"
-public void goToChangePassword() {
-    wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
-    WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
-    changePasswordElement.click();
-}
+    public void goToChangePassword() {
+        wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
+        WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
+        changePasswordElement.click();
 
-public void goToSupport() {
-    
-    wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
-    WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(supportButton));
-    changePasswordElement.click();
-}
+    }
+    public void goToPIM(){
+            WebElement adminTab = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a")));
+            adminTab.click();
+        }
+    public void goToSupport() {
 
-public void goToWorkShifts() {
-    
-    
-}
+        wait.until(ExpectedConditions.elementToBeClickable(profileDropdown)).click();
+        WebElement changePasswordElement = wait.until(ExpectedConditions.elementToBeClickable(supportButton));
+        changePasswordElement.click();
+    }
+
+    public void goToWorkShifts() {
+
+
+    }
 
 
 }

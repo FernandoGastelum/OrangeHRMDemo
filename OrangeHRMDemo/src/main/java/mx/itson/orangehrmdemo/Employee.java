@@ -28,6 +28,11 @@ public class Employee {
     private By searchButton = By.id("searchBtn");
     private By employeeName = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[1]/div[1]/h6");
     private By PIMButton = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a");
+    private By reportsButton = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[2]/nav/ul/li[4]");
+    private By addReportButton = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button");
+    private By reportNameTextField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/input");
+    
+    
 
     // Constructor
     public Employee(WebDriver driver) {
@@ -71,5 +76,8 @@ public class Employee {
     public boolean getEmployeeName(){
         WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(employeeName));
         return titleElement.isDisplayed();
+    }
+    public void viewReport(){
+        
     }
 }

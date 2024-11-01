@@ -23,12 +23,16 @@ public class Admin {
     private By editButton = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div/div[5]/div/div/div[1]/div[2]/div/div/button[2]");
     private By employeeUserNameTextField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input");
     private By saveButton = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]");
-    private By pageTitle = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[1]/h5");
+
+   
    // Actualiza el localizador searchUsernameField con la nueva ruta XPath proporcionada
 private By searchUsernameField = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input");
 
     private By searchButton = By.xpath("//button[@type='submit']");
     private By employeeResult = By.xpath("//div[@class='oxd-table-row']"); // Localizador para el resultado de búsqueda
+
+    private By pageTitle = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[1]");
+
     
     public Admin(WebDriver driver) {
         this.driver = driver;
@@ -278,7 +282,7 @@ public void deleteWorkShift() throws InterruptedException {
     
     public void editEmployeeUsername(String name){
         wait.until(ExpectedConditions.elementToBeClickable(editButton)).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(employeeUserNameTextField));
+        wait.until(ExpectedConditions.elementToBeClickable(employeeUserNameTextField)).clear();
         driver.findElement(employeeUserNameTextField).clear();
         driver.findElement(employeeUserNameTextField).sendKeys(name);
         driver.findElement(saveButton).click();
@@ -286,6 +290,10 @@ public void deleteWorkShift() throws InterruptedException {
     public String getTitle(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle)).toString();
     }
-    
-    
+
+    public boolean isAdminDisplayed() {
+        WebElement titleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle));
+        return titleElement.isDisplayed();
+    }
 }
+
